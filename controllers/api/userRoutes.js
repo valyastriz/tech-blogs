@@ -1,7 +1,7 @@
 // Routes related to user management (signup, login, etc.)
 const express = require('express');
 const router = require('express').Router();
-const { User } = require('../../models');
+const { User, Comment, Post } = require('../../models');
 
 // get all users
 router.get('/', async (req, res) => {
@@ -61,6 +61,46 @@ router.put('/:id', async (req, res) => {
 
         res.status(200).json(updatedUser);
     } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+// delete user by id
+router.delete('/:id', async (req, res) => {
+    try {
+        // find unk user to replace the username iwth on existing comments and blogs
+        const unknownUser = await User.findOne({ where: { name: 'Unknown' }});
+
+        if (!unknownUser) {
+            return res.status(500).json({ message: 'Unknown user not found. Please create it first.' });
+        }
+
+        // reassign comments to "unknown" user
+        await Comment.update(
+            { user_id: unknownUser.id },
+            { where: { user_id: req.params.id }}
+        );
+
+        // reassign posts to "unknown" user
+        await Post.update(
+            { user_id: unknownUser.id },
+            { where: { user_id: req.params.id }}
+        );
+
+        const deletedUser = await User.destroy({
+            where: {
+                id: req.params.id
+            }
+        });
+
+        if (!deletedUser) {
+            res.status(404).json({ message: 'No user found with this id '});
+            return;
+        }
+
+        res.status(200).json({ message: 'User deleted' });
+    } catch (err) {
+        console.error(err);
         res.status(500).json(err);
     }
 });

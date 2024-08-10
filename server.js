@@ -8,6 +8,7 @@ const helpers = require('./utils/helpers');
 require('dotenv').config();
 
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
+const { User } = require('./models');
 
 // Set up Handlebars.js engine with custom helpers
 const hbs = exphbs.create({ helpers });
@@ -44,6 +45,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(routes);
 
-sequelize.sync({ force: false }).then(() => {
+sequelize.sync({ force: false }).then(async () => {
+  // Ensure the "Unknown" user exists
+  await User.findOrCreate({
+      where: { name: 'Unknown' },
+      defaults: { email: 'unknown@example.com', password: 'password' }
+  });
+
   app.listen(PORT, () => console.log('Now listening'));
 });
