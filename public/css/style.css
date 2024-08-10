@@ -1,1 +1,25 @@
 /* custom css for styling */
+
+/* Custom styles for the header and footer */
+header, footer {
+    font-family: 'Your Font Here', sans-serif;
+}
+
+/* Adjusting card styles for blog posts */
+.card {
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+/* Other custom styles */
+
+
+@media (max-width: 768px) {
+    /* Adjust layout for mobile devices */
+    header, footer {
+        text-align: center;
+    }
+}
