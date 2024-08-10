@@ -23,7 +23,7 @@ router.get('/', async (req, res) => {
     }
 });
 
-// Route to get a single post to display once a blog post is clicked
+// Route to get a single post page to display once a blog post is clicked
 router.get('/post/:id', async (req, res) => {
     try {
         const postData = await Post.findByPk(req.params.id, {
@@ -53,6 +53,26 @@ router.get('/post/:id', async (req, res) => {
     } catch (err) {
         res.status(500).json(err);
     }
+});
+
+router.get('/login', (req, res) => {
+    if (req.session.logged_in) {
+        res.redirect('/');
+        return;
+    }
+
+    res.render('login');
+});
+
+// route to render signup page
+router.get('/signup', (req, res) => {
+    // check if user is already logged in, if so, just redirect them to the home page
+    if (req.session.logged_in) {
+        res.redirect('/');
+        return;
+    }
+
+    res.render('signup');
 });
 
 module.exports = router;

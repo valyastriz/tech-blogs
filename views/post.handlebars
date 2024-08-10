@@ -23,14 +23,20 @@
         </div>
         {{/each}}
 
-
         {{#if logged_in}}
         <div class="mt-4">
-            <textarea id="comment-input" class="form-control mb-2" placeholder="Text box to add comment"></textarea>
-            <button id="submit-comment" class="btn btn-primary">Submit Comment</button>
+            <form id="comment-form">
+                <textarea id="comment-content" class="form-control mb-2" placeholder="Text box to add comment"></textarea>
+                <!-- Hidden input to store the post ID -->
+                <input type="hidden" id="post-id" value="{{post.id}}">
+                <button type="submit" id="submit-comment" class="btn btn-primary">Submit Comment</button>
+            </form>
         </div>
         {{else}}
         <p>You need to <a href="/login">log in</a> to leave a comment.</p>
         {{/if}}
     </div>
 </div>
+
+<!-- Include the comments.js file -->
+<script src="/js/comments.js"></script>

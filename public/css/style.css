@@ -138,3 +138,43 @@ footer {
         margin: 20px 0;
     }
 }
+
+body {
+    background-color: #f7f7f7;
+    font-family: Arial, sans-serif;
+}
+
+.card {
+    background-color: #dcdcdc;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card h2 {
+    font-family: 'Cursive', sans-serif;
+    font-size: 2rem;
+}
+
+.form-control {
+    background-color: #f7f7f7;
+    border: none;
+    border-radius: 5px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary {
+    background-color: #6A5ACD;
+    border: none;
+    font-size: 1rem;
+}
+
+.btn-secondary {
+    background-color: #8470FF;
+    border: none;
+    font-size: 1rem;
+}
+
+.vh-100 {
+    height: 100vh;
+}
