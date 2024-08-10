@@ -75,6 +75,18 @@ router.get('/signup', (req, res) => {
     res.render('signup');
 });
 
+router.get('/new-post', (req, res) => {
+    console.log('New Post route hit');
+    if(!req.session.logged_in) {
+        res.redirect('/login');
+        return;
+    } 
+
+    res.render('new-post', {
+        loggin_in: req.session.logged_in
+    });
+});
+
 // Post model
 Post.hasMany(Comment, { foreignKey: 'post_id' });
 Post.belongsTo(User, { foreignKey: 'user_id' });
