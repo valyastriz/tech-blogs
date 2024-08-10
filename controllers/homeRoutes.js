@@ -17,6 +17,8 @@ router.get('/', async (req, res) => {
         res.render('home', {
             posts,
             showJumbotron: true, // Flag to show the jumbotron on this page
+            logged_in: req.session.logged_in,
+            user: req.session.user // pass user info to the template
         });
     } catch (err) {
         res.status(500).json(err);
