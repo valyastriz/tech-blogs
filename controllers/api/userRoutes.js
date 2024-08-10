@@ -10,7 +10,22 @@ router.get('/', async (req, res) => {
         res.json(users);
 
     } catch (error) {
-        res.status(500).send(error.message);
+        res.status(500).json(err);
+    }
+});
+
+// get a user by id
+router.get('/:id', async (req, res) => {
+    try {
+        const user = await User.findByPk(req.params.id);
+
+        if (!user) {
+            return res.status(404).json({ message: 'No user found with this id' });
+        }
+
+        res.json(user);
+    } catch (err) {
+        res.status(500).json(err);
     }
 });
 
