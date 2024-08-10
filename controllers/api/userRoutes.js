@@ -1,8 +1,34 @@
 // Routes related to user management (signup, login, etc.)
+const express = require('express');
 const router = require('express').Router();
 const { User } = require('../../models');
 
-router.post()
+// get all users
+router.get('/', async (req, res) => {
+    try {
+        const users = await User.findAll();
+        res.json(users);
+
+    } catch (error) {
+        res.status(500).send(error.message);
+    }
+});
+
+// create a new user
+// router.post('/', async (req, res) => {
+//     try {
+//         const userData = await User.create(req.body);
+
+//         req.session.save(() => {
+//             req.session.user_id;
+//             req.session.logged_in = true;
+
+//             res.status(200).json(userData);
+//         });
+//     } catch (err) {
+//         res.status(400).json(err);
+//     }
+// });
 
 
 
