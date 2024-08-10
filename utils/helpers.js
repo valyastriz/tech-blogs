@@ -5,6 +5,9 @@ module.exports = {
             return text.substring(0, limit) + '...';
         }
         return text;
-    }
+    },
+    format_time: (date) => {
+        return date.toLocaleTimeString();
+      },
   };
   

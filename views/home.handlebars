@@ -1,9 +1,9 @@
 {{!-- tempate for homepage --}}
 
+{{#if posts.length}}
 <div class="row">
     {{#each posts}}
     <div class="col-md-4">
-        <!-- Placeholder for blog post preview -->
         <div class="card mb-4">
             <div class="card-body">
                 <h5 class="card-title">{{title}}</h5>
@@ -13,5 +13,7 @@
         </div>
     </div>
     {{/each}}
-    <!-- Repeat for other posts -->
 </div>
+{{else}}
+<p>No posts available at the moment.</p>
+{{/if}}

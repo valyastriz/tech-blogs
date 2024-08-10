@@ -1,22 +1,54 @@
 // Routes related to the homepage and general navigation
 const router = require('express').Router();
-const { Post } = require('../models');
+const { Post, Comment, User } = require('../models');
 
 // Route to render the homepage
 router.get('/', async (req, res) => {
     try {
-        // fetch all posts from the database
-        const postData = await Post.findAll();
+        // Fetch all posts from the database
+        const postData = await Post.findAll({
+            include: [{ model: User, attributes: ['name'] }] // Include author details in posts
+        });
 
-        // serialize data so the template can read it
+        // Serialize data so the template can read it
         const posts = postData.map((post) => post.get({ plain: true }));
 
-        console.log({ posts, showJumbotron: true });
-
-        // pass posts and jumbotron flag to the homepage template
+        // Pass posts and jumbotron flag to the homepage template
         res.render('home', {
             posts,
             showJumbotron: true, // Flag to show the jumbotron on this page
+        });
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+// Route to get a single post to display once a blog post is clicked
+router.get('/post/:id', async (req, res) => {
+    try {
+        const postData = await Post.findByPk(req.params.id, {
+            include: [
+                {
+                    model: User, // Include author details in the post
+                    attributes: ['name']
+                },
+                {
+                    model: Comment,
+                    include: [{ model: User, attributes: ['name'] }] // Include author details in comments
+                }
+            ]
+        });
+
+        if (!postData) {
+            res.status(404).json({ message: 'No post found with this id' });
+            return;
+        }
+
+        const post = postData.get({ plain: true });
+
+        res.render('post', {
+            post,
+            logged_in: req.session.logged_in
         });
     } catch (err) {
         res.status(500).json(err);
