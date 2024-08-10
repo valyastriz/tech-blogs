@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
         const users = await User.findAll();
         res.json(users);
 
-    } catch (error) {
+    } catch (err) {
         res.status(500).json(err);
     }
 });
