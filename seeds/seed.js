@@ -17,8 +17,24 @@ const userData = [
     name: 'Alice Johnson',
     email: 'alicejohnson@example.com',
     password: 'password123'
+  },
+  {
+    name: 'Michael Brown',
+    email: 'michaelbrown@example.com',
+    password: 'password123'
+  },
+  {
+    name: 'Emily Davis',
+    email: 'emilydavis@example.com',
+    password: 'password123'
+  },
+  {
+    name: 'Chris Wilson',
+    email: 'chriswilson@example.com',
+    password: 'password123'
   }
 ];
+
 
 const postData = [
   {
@@ -35,8 +51,24 @@ const postData = [
     title: 'How to Use Sequelize with PostgreSQL',
     content: 'Sequelize is a powerful ORM that can be used to manage data in a PostgreSQL database...',
     user_id: 3
+  },
+  {
+    title: 'The Basics of CSS Flexbox',
+    content: 'CSS Flexbox makes it easy to design flexible and responsive layout structures. Let’s dive into how it works...',
+    user_id: 4
+  },
+  {
+    title: 'Async/Await in JavaScript',
+    content: 'Async/Await is a powerful feature in JavaScript for handling asynchronous operations. Learn how to use it effectively...',
+    user_id: 5
+  },
+  {
+    title: 'Introduction to GraphQL',
+    content: 'GraphQL is a query language for APIs and a runtime for executing those queries. Explore the benefits and how to get started...',
+    user_id: 6
   }
 ];
+
 
 const commentData = [
   {
@@ -53,8 +85,24 @@ const commentData = [
     content: 'Looking forward to trying this out in my project.',
     user_id: 1,
     post_id: 2
+  },
+  {
+    content: 'CSS Flexbox is really powerful once you understand the basics.',
+    user_id: 5,
+    post_id: 4
+  },
+  {
+    content: 'Async/Await has simplified my code a lot!',
+    user_id: 4,
+    post_id: 5
+  },
+  {
+    content: 'GraphQL looks interesting, I will give it a try.',
+    user_id: 3,
+    post_id: 6
   }
 ];
+
 
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });

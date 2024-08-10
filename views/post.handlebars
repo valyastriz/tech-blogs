@@ -2,7 +2,7 @@
     <div class="card p-4">
         <h1 class="card-title">{{post.title}}</h1>
         <p class="text-muted">
-            Date Published: {{post.createdAt}} <br>
+            Date Published: {{format_date post.createdAt}} <br>
             Author: {{post.user.name}}
         </p>
         <div class="card-body">
@@ -18,7 +18,7 @@
             <div class="card-body">
                 <h5 class="card-title">{{this.user.name}}</h5>
                 <p class="card-text">{{this.content}}</p>
-                <p class="text-muted small">Date: {{this.createdAt}}</p>
+                <p class="text-muted small">Date: {{format_date this.createdAt}}</p>
             </div>
         </div>
         {{/each}}

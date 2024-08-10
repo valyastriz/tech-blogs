@@ -9,5 +9,13 @@ module.exports = {
     format_time: (date) => {
         return date.toLocaleTimeString();
       },
+      format_date: (date) => {
+        // Customize the format as needed, e.g., MM/DD/YYYY
+        return date.toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'short', // Use 'long' for full month name
+            day: 'numeric',
+        });
+    },
   };
   
