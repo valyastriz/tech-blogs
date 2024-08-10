@@ -1,25 +1,140 @@
-/* custom css for styling */
-
-/* Custom styles for the header and footer */
-header, footer {
-    font-family: 'Your Font Here', sans-serif;
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* Adjusting card styles for blog posts */
-.card {
-    transition: transform 0.2s;
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
 }
 
-.card:hover {
-    transform: scale(1.05);
+/* Header Styling */
+header {
+    background-color: #333;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 0 5px 0; /* Padding around the header */
+    margin-bottom: 0;
 }
 
-/* Other custom styles */
+/* Main section directly under the header */
+.jumbotron {
+    margin: 0 0 20px 0; /* Remove default margin */
+    padding: 40px 20px; /* Adjust padding as needed */
+}
 
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    margin-right: 20px; /* Space between logo and nav */
+}
 
+nav {
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+}
+
+nav a:hover {
+    background-color: #555;
+    border-radius: 5px;
+}
+
+/* Main Section Styling */
+.main-section {
+    background-color: #444;
+    color: white;
+    padding: 0;
+    margin-top: 0; /* Ensure no margin at the top of the main section */
+    flex: 1; /* Makes the main content take up the remaining space */
+}
+
+.main-section h1 {
+    font-size: 32px;
+    margin-bottom: 0px;
+}
+
+.post-card {
+    background-color: white;
+    color: black;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.post-card h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.post-card p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.post-card a {
+    color: white;
+    background-color: blue;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.jumbotron {
+    width: 100%;
+    margin: 0 0 0 20px 0;
+    padding: 40px 20px;
+    border-radius: 0; /* Remove rounded corners if desired */
+}
+
+.post-card a:hover {
+    background-color: darkblue;
+}
+
+/* Footer Styling */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    flex-shrink: 0;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
-    /* Adjust layout for mobile devices */
-    header, footer {
-        text-align: center;
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .main-section h1 {
+        font-size: 24px;
+    }
+
+    .post-card {
+        margin: 20px 0;
     }
 }

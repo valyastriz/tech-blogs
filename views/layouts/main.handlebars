@@ -8,11 +8,13 @@
     <link href="/css/style.css" rel="stylesheet">
 </head>
 <body>
-    <header class="bg-primary text-white text-center py-3">
+    <header class="bg-secondary text-white text-center p-3">
         <div class="container d-flex justify-content-between align-items-center">
-            <div>
-                <img src="/path-to-your-logo.png" alt="Logo" class="img-fluid" style="max-width: 50px;">
-                <span class="navbar-brand">Tech Blogs</span>
+            <div class="d-flex align-items-center">
+                <a href="/" class="d-flex align-items-center text-white text-decoration-none">
+                    <img src="/images/logo.png" alt="Logo" class="img-fluid" style="max-width: 50px; margin-right: 10px;">
+                    <span class="navbar-brand mb-0">Tech Blogs</span>
+                </a>
             </div>
             <nav>
                 <a href="/" class="text-white mx-2">Home</a>
@@ -22,11 +24,19 @@
         </div>
     </header>
 
-    <main class="container my-5">
+    {{#if showJumbotron}}
+    <div class="jumbotron bg-dark text-white text-center w-100" style="padding: 40px 0;">
+        <div class="container">
+            <h1 class="display-4">Tech Blogs - Where tech minds unite to share insights, spark ideas, and stay ahead in the digital world.</h1>
+        </div>
+    </div>
+    {{/if}}
+
+    <main class="container">
         {{{body}}}
     </main>
 
-    <footer class="bg-secondary text-white text-center py-3">
+    <footer class="bg-secondary text-white text-center py-3 mt-auto">
         <a href="/contact" class="text-white">Contact Us</a>
     </footer>
 
