@@ -1,9 +1,12 @@
 // Routes related to the homepage and general navigation
+console.log('homeRoutes.js loaded');
+
 const router = require('express').Router();
 const { Post, Comment, User } = require('../models');
 
 // Route to render the homepage
 router.get('/', async (req, res) => {
+    console.log('Home route accessed');
     try {
         // Fetch all posts from the database
         const postData = await Post.findAll({
@@ -12,7 +15,7 @@ router.get('/', async (req, res) => {
 
         // Serialize data so the template can read it
         const posts = postData.map((post) => post.get({ plain: true }));
-
+        console.log(req.session.user);
         // Pass posts and jumbotron flag to the homepage template
         res.render('home', {
             posts,
