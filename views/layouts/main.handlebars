@@ -8,25 +8,26 @@
     <link href="/css/style.css" rel="stylesheet">
 </head>
 <body>
-    <header class="bg-secondary text-white text-center p-3">
-        <div class="container d-flex justify-content-between align-items-center">
-            <div class="d-flex align-items-center">
-                <a href="/" class="d-flex align-items-center text-white text-decoration-none">
-                    <img src="/images/logo.png" alt="Logo" class="img-fluid" style="max-width: 50px; margin-right: 10px;">
-                    <span class="navbar-brand mb-0">Tech Blogs</span>
-                </a>
-            </div>
-            <nav>
-                <a href="/" class="text-white mx-2">Home</a>
-                <a href="/new-post" class="text-white mx-2">New Post</a>
-                {{#if logged_in}}
-                    <span class="text-white mx-2">Welcome, {{user.name}}</span>
-                {{else}}
-                    <a href="/login" class="text-white mx-2">Log in</a>
-                {{/if}}
-            </nav>
+<header class="bg-secondary text-white p-3">
+    <div class="container d-flex justify-content-between align-items-center">
+        <div class="d-flex align-items-center">
+            <a href="/" class="d-flex align-items-center text-white text-decoration-none">
+                <img src="/images/logo.png" alt="Logo" class="img-fluid" style="max-width: 50px; margin-right: 10px;">
+                <span class="navbar-brand mb-0">Tech Blogs</span>
+            </a>
         </div>
-    </header>
+        <nav class="d-flex align-items-center">
+            <a href="/" class="text-white mx-2">Home</a>
+            <a href="/new-post" class="text-white mx-2">New Post</a>
+            {{#if logged_in}}
+                <span class="text-white mx-2">Welcome, {{user.name}}</span>
+            {{else}}
+                <a href="/login" class="text-white mx-2">Log in</a>
+            {{/if}}
+        </nav>
+    </div>
+</header>
+
 
     {{#if showJumbotron}}
     <div class="jumbotron bg-dark text-white text-center w-100" style="padding: 40px 0;">
