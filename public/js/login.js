@@ -1,7 +1,7 @@
 document.querySelector('#login-form').addEventListener('submit', async (event) => {
     event.preventDefault();
 
-    const email = document.querySelector('#name').value.trim(); // Change 'username' to 'email'
+    const name = document.querySelector('#name').value.trim(); // Change 'username' to 'email'
     const password = document.querySelector('#password').value.trim();
 
     if (email && password) {
