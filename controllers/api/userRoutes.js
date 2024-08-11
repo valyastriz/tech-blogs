@@ -3,16 +3,16 @@ const express = require('express');
 const router = require('express').Router();
 const { User, Comment, Post } = require('../../models');
 
-// // get all users
-// router.get('/', async (req, res) => {
-//     try {
-//         const users = await User.findAll();
-//         res.json(users);
+// get all users
+router.get('/', async (req, res) => {
+    try {
+        const users = await User.findAll();
+        res.json(users);
 
-//     } catch (err) {
-//         res.status(500).json(err);
-//     }
-// });
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
 
 // get a user by id
 router.get('/:id', async (req, res) => {

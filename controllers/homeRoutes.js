@@ -7,7 +7,7 @@ router.get('/', async (req, res) => {
     try {
         // Fetch all posts from the database
         const postData = await Post.findAll({
-            include: [{ model: User, attributes: ['name'] }] // Include author details in posts
+            include: [{ model: User, attributes: ['name'] }] 
         });
 
         // Serialize data so the template can read it
@@ -18,7 +18,7 @@ router.get('/', async (req, res) => {
             posts,
             showJumbotron: true, // Flag to show the jumbotron on this page
             logged_in: req.session.logged_in,
-            user: req.session.user // pass user info to the template
+            user: req.session.user || null // pass user info to the template
         });
     } catch (err) {
         res.status(500).json(err);
@@ -50,7 +50,8 @@ router.get('/post/:id', async (req, res) => {
 
         res.render('post', {
             post,
-            logged_in: req.session.logged_in
+            logged_in: req.session.logged_in,
+            user: req.session.user || null
         });
     } catch (err) {
         res.status(500).json(err);
@@ -85,7 +86,8 @@ router.get('/new-post', (req, res) => {
     } 
 
     res.render('new-post', {
-        loggin_in: req.session.logged_in
+        logged_in: req.session.logged_in,
+        user: req.session.user || null
     });
 });
 
