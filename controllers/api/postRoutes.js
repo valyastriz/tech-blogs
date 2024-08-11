@@ -14,7 +14,7 @@ router.get('/', async (req, res) => {
     }
 });
 
-// get a comment by id
+// get a post by id
 router.get('/:id', async (req, res) => {
     try {
         const post = await Post.findByPk(req.params.id);
@@ -29,23 +29,24 @@ router.get('/:id', async (req, res) => {
     }
 });
 
-// create a new comment
+// create a new post
 router.post('/', async (req, res) => {
     try {
-        const postData = await Post.create(req.body);
-
-        req.session.save(() => {
-            req.session.user_id = userData.id;
-            req.session.logged_in = true;
-
-            res.status(200).json(postData);
+        const postData = await Post.create({
+            title: req.body.title,
+            content: req.body.content,
+            user_id: req.session.user_id,
         });
+
+        // Send back the newly created post's ID to the client
+        res.status(200).json({ id: postData.id });
     } catch (err) {
         res.status(500).json(err);
     }
 });
 
-// update a comment by id
+
+// update a post by id
 router.put('/:id', async (req, res) => {
     try {
         const updatedPost = await Post.update(req.body, {
@@ -65,7 +66,7 @@ router.put('/:id', async (req, res) => {
     }
 });
 
-// delete comment by id
+// delete post by id
 router.delete('/:id', async (req, res) => {
     try {
 
