@@ -16,9 +16,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
 
                 if (response.ok) {
-                    const responseData = await response.json();
+                    const postData = await response.json();
                     // redirect to newly created post page
-                    document.location.replace(`/post/${responseData.id}`);
+                    document.location.replace(`/post/${postData.id}`);
                 } else {
                     alert('Failed to create post');
                 }
