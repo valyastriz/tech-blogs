@@ -21,7 +21,7 @@
             <a href="/new-post" class="text-white mx-2">New Post</a>
             {{#if logged_in}}
                 <a href="/dashboard" class="text-white mx-2">Dashboard</a>
-                <a href="/logout" class="text-white mx-2">Log out</a>
+                <a href="/logout" id="logout" class="text-white mx-2">Log out</a>
             {{else}}
                 <a href="/login" class="text-white mx-2">Log in</a>
             {{/if}}
@@ -49,5 +49,7 @@
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="/js/script.js"></script>
+<script src="/js/logout.js"></script>
+
 </body>
 </html>

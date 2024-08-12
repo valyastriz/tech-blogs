@@ -141,4 +141,14 @@ router.post('/login', async (req, res) => {
     }
 });
 
+// log user out
+router.post('/logout', (req, res) => {
+    req.session.destroy((err) => {
+      if (err) {
+        return res.status(500).json({ message: 'Unable to log out'});
+      }
+      res.redirect('/');
+    });
+  });
+
 module.exports = router;
