@@ -20,7 +20,8 @@
             <a href="/" class="text-white mx-2">Home</a>
             <a href="/new-post" class="text-white mx-2">New Post</a>
             {{#if logged_in}}
-                <span class="text-white mx-2">Welcome, {{user.name}}</span>
+                <a href="/dashboard" class="text-white mx-2">Dashboard</a>
+                <a href="/logout" class="text-white mx-2">Log out</a>
             {{else}}
                 <a href="/login" class="text-white mx-2">Log in</a>
             {{/if}}
@@ -28,26 +29,25 @@
     </div>
 </header>
 
-
-    {{#if showJumbotron}}
-    <div class="jumbotron bg-dark text-white text-center w-100" style="padding: 40px 0;">
-        <div class="container">
-            <h1 class="display-4">Tech Blogs - Where tech minds unite to share insights, spark ideas, and stay ahead in the digital world.</h1>
-        </div>
+{{#if showJumbotron}}
+<div class="jumbotron bg-dark text-white text-center w-100" style="padding: 40px 0;">
+    <div class="container">
+        <h1 class="display-4">Tech Blogs - Where tech minds unite to share insights, spark ideas, and stay ahead in the digital world.</h1>
     </div>
-    {{/if}}
+</div>
+{{/if}}
 
-    <main class="container">
-        {{{body}}}
-    </main>
+<main class="container">
+    {{{body}}}
+</main>
 
-    <footer class="bg-secondary text-white text-center py-3 mt-auto">
-        <a href="/contact" class="text-white">Contact Us</a>
-    </footer>
+<footer class="bg-secondary text-white text-center py-3 mt-auto">
+    <a href="/contact" class="text-white">Contact Us</a>
+</footer>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="/js/script.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="/js/script.js"></script>
 </body>
 </html>
