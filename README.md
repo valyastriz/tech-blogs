@@ -51,12 +51,11 @@ Daily Echo is a personal diary web application that allows users to log their da
 3. View, edit, or delete your existing entries.
 4. Email yourself a copy of any entry by clicking the "Email" button on the entry page.
 
-## Deployment
-To deploy this application to Render:
-1. Connect your Render account to your GitHub repository.
-2. Create a new Web Service on Render and select your repository.
-3. Set the necessary environment variables in Render's dashboard.
-4. Deploy and monitor the deployment status on Render.
+## Live Deployed Site
+Check out the live version of the site [here](https://tech-blogs-84ox.onrender.com).
+
+## GitHub Repository
+You can view the code for this project on GitHub [here](https://github.com/valyastriz/tech-blogs.git).
 
 ## Technologies Used
 - Node.js
