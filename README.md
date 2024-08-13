@@ -54,6 +54,9 @@ Daily Echo is a personal diary web application that allows users to log their da
 ## Live Deployed Site
 Check out the live version of the site [here](https://tech-blogs-84ox.onrender.com).
 
+## Screenshot
+![Screenshot of Tech Blog](./public/images/screenshot.png)
+
 ## GitHub Repository
 You can view the code for this project on GitHub [here](https://github.com/valyastriz/tech-blogs.git).
 
